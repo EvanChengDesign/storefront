@@ -21,4 +21,4 @@ This is a basic template for an e-commerce website utilizing redux.
     "sass": "^1.77.5" 
 -----    
 ### UML: 
-![UML](./public/UML.png)
+![UML](./src/assets/UML.png)

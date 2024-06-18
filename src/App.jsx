@@ -1,23 +1,17 @@
-import React from 'react';
-import StoreProvider from './store/index.js';
-import Header from './Components/Header.jsx';
-import Footer from './Components/Footer.jsx';
-import Categories from './Components/Categories.jsx';
-import Products from './Components/Products.jsx';
-import ActiveCategory from './Components/ActiveCategory.jsx';
-import { Container } from '@mui/material';
+import Header from './Components/Header';
+import Categories from './Components/Categories';
+import Products from './Components/Products';
+import Footer from './Components/Footer';
 
-function App() {
-  return (
-    <StoreProvider>
-      <Header />
-      <Container>
-        <Categories />
-        <ActiveCategory />
-        <Products />
-      </Container>
-      <Footer />
-    </StoreProvider>
+function App(){
+
+  return(
+    <>
+    <Header />
+    <Categories />
+    <Products />
+    <Footer />
+    </>
   );
 }
 

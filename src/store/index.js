@@ -1,14 +1,24 @@
-// Store Files & Wiring
-import { createStore, combineReducers } from 'redux';
-import { composeWithDevTools } from '@redux-devtools/extension';
+import { configureStore } from '@reduxjs/toolkit';
+import { Provider } from 'react-redux';
+import categoriesReducer from './categories';
+import productsReducer from './products';
+import activeCategoryReducer from './active-category';
 
-// Which Reducers are you bringing in?
-import counter from './counter.js';
+const store = configureStore({
+  reducer: {
+    categories: categoriesReducer,
+    products: productsReducer,
+    activeCategory: activeCategoryReducer,
+  },
+});
 
-let reducers = combineReducers({ counter });
-const store = () => {
-    return createStore(reducers, composeWithDevTools());
-}
+const StoreProvider = ({ children }) => (
+  <Provider store={store}>
+    {children}
+  </Provider>
+);
 
-export default store();
+export default StoreProvider;
+
+
 

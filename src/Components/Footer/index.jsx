@@ -1,9 +1,20 @@
 import React from 'react';
-import { Typography } from '@mui/material';
+import { Typography, Box } from '@mui/material';
 
 function Footer() {
   return (
-    <footer style={{ padding: '20px', backgroundColor: '#2c3e50', textAlign: 'center' }}>
+    <Box
+      component="footer"
+      sx={{
+        py: 2,
+        backgroundColor: '#2c3e50',
+        textAlign: 'center',
+        mt: 'auto',
+        width: '100%',
+        position: 'fixed', 
+        bottom: 0, 
+      }}
+    >
       <Typography
         variant="body1"
         sx={{
@@ -13,7 +24,7 @@ function Footer() {
       >
         ©2024 Evan Cheng
       </Typography>
-    </footer>
+    </Box>
   );
 }
 

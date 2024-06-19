@@ -5,80 +5,89 @@ import pizzaImage from '../../assets/pizza.jpg';
 import shoesImage from '../../assets/shoes.jpg';
 import pantsImage from '../../assets/pants.jpg';
 
-
 let tv = {
+  id: 1,
   title: 'INSIGNIA 32-inch TV',
   description: 'INSIGNIA 32-inch Class F20 Series Smart Full HD 1080p Fire TV with Alexa Voice Remote',
   image: tvImage,
   category: 'electronics',
-  price: '$800'
+  price: 800,
+  quantity: 10
 };
 
 let laptop = {
+  id: 2,
   title: 'Lenovo Newest 15.6" Laptop',
   description: 'Lenovo Newest 15.6"" Laptop, 16GB RAM, 1TB SSD Storage, 15.6"" FHD (1920 x 1080) Display, Ethernet Port, HDMI, USB-C, WiFi & Bluetooth, Intel Dual-core Processor, Windows 11 Home, Black',
   image: laptopImage,
   category: 'electronics',
-  price: '$2400'
+  price: 2400,
+  quantity: 5
 };
 
 let spaghetti = {
+  id: 3,
   title: 'Campbell\'s Canned Spaghetti',
   description: 'Campbell\'s Canned Spaghetti, Snacks for Kids and Adults,15.8 OZ Can',
   image: spaghettiImage,
   category: 'food',
-  price: '$0.99'
+  price: 0.99,
+  quantity: 50
 };
 
 let pizza = {
+  id: 4,
   title: 'Red Baron Frozen Pizza',
   description: 'Red Baron Frozen Pepperoni Pizza, 6-Ounce Pizzas (Pack of 12)',
   image: pizzaImage,
   category: 'food',
-  price: '$18'
+  price: 18,
+  quantity: 20
 };
 
 let shoes = {
+  id: 5,
   title: 'Nike Air Max Shoes',
   description: 'Nike Air Max 270 Shoes, Lightweight, Comfortable, Breathable Sneakers for Running and Casual Wear',
   image: shoesImage,
   category: 'clothing',
-  price: '$150'
+  price: 150,
+  quantity: 15
 };
 
 let pants = {
+  id: 6,
   title: 'Levi\'s 501 Original Fit Jeans',
   description: 'Levi\'s 501 Original Fit Jeans, Durable, Comfortable Denim for Men and Women',
   image: pantsImage,
   category: 'clothing',
-  price: '$60'
+  price: 60,
+  quantity: 30
 };
+
 
 let initialState = {
   products: [tv, laptop, spaghetti, pizza, shoes, pants],
   displayedProducts: [tv, laptop]
 };
 
-
 const filterProducts = (state, category) => {
   const filteredProducts = state.products.filter((product) => product.category === category);
   return filteredProducts;
-}
+};
 
 const productsReducer = (state = initialState, action) => {
-
-  let {type, payload } = action;
+  let { type, payload } = action;
   let filteredProducts = null;
 
-  switch(type) {
+  switch (type) {
     case 'CHANGE_CATEGORY':
       filteredProducts = filterProducts(state, payload);
-      return { ...state, displayedProducts: filteredProducts}
+      return { ...state, displayedProducts: filteredProducts };
     default:
       return state;
   }
-
-}
+};
 
 export default productsReducer;
 
@@ -86,5 +95,5 @@ export function changeCategory(category) {
   return {
     type: 'CHANGE_CATEGORY',
     payload: category
-  }
+  };
 }
